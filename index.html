@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Authors</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><p>POSTER AUTHORS</p></li>
+        </ul>
+
+    </nav>
+    <div class="container">
+
+        <div class="authors">
+            <h3>AUTHORS:</h3>
+            <p>Mohamed Abu elnaga</p>
+            <p>Mohamed Abu elnaga</p>
+            <p>Mohamed Abu elnaga</p>
+            <p>Mohamed Abu elnaga</p>
+            <p>Mohamed Abu elnaga</p>
+            <p>Mohamed Abu elnaga</p>
+            <p>Mohamed Abu elnaga</p>
+            <p>Mohamed Abu elnaga</p>
+            <p>Mohamed Abu elnaga</p>
+            <p>Mohamed Abu elnaga</p>
+            <p>Mohamed Abu elnaga</p>
+
+            <h3>SUPERVISED BY:</h3>
+            <h4>Dr. Yehia Abbas</h4>
+        </div>
+
+        <div class="poster">
+            <h3>THE POSTER:</h3>
+            <img src="poster.jpg" alt="poster" class="poster-img" id="zoomable-img">
+            <div id="qrcode"></div>
+
+        </div>
+
+        <footer>
+            Created by &copy; <a href="http://sunman.epizy.com">SUNMAN</a> - 2025
+        </footer>
+    </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+     <script>
+    const img = document.getElementById('zoomable-img');
+
+    img.addEventListener('click', function () {
+      // لو مش في وضع التكبير، نكبرها
+      if (!img.classList.contains('fullscreen')) {
+        img.classList.add('fullscreen');
+      } else {
+        img.classList.remove('fullscreen');
+      }
+    });
+
+    // لو المستخدم ضغط في أي مكان خارج الصورة، نقفل التكبير
+    document.addEventListener('click', function (e) {
+      if (img.classList.contains('fullscreen') && e.target !== img) {
+        img.classList.remove('fullscreen');
+      }
+    });
+
+        new QRCode(document.getElementById("qrcode"), {
+      text: window.location.href,
+      width: 128,
+      height: 128
+    });
+  </script>
+
+</body>
+</html>
